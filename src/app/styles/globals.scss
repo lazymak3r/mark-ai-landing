@@ -50,6 +50,12 @@ body {
   padding-right: 15px;
 }
 
+img {
+  max-width: 100%;
+  vertical-align: middle;
+  display: inline-block;
+}
+
 .primary-button {
   color: #fff;
   text-transform: capitalize;
@@ -81,5 +87,13 @@ body {
 
   &:hover {
     box-shadow: none;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .primary-button,
+  .secondary-button {
+    padding: 14px 20px;
+    font-size: 16px;
   }
 }
