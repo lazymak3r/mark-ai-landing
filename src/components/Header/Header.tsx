@@ -12,12 +12,14 @@ import {Hamburger} from "@/components/Hamburger/Hamburger";
 interface HeaderProps {
 }
 
+const SCROLL_SIZE = 50;
+
 export const Header: React.FC<HeaderProps> = (props) => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
-  const [isScrolled, setIsScrolled] = useState<boolean>(typeof window === "undefined" ? false : window.scrollY >= 50);
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
   const handleScroll = () => {
-    if (window.scrollY >= 50) {
+    if (window.scrollY >= SCROLL_SIZE) {
       setIsScrolled(true);
     } else {
       setIsScrolled(false);
@@ -26,6 +28,7 @@ export const Header: React.FC<HeaderProps> = (props) => {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
+      setIsScrolled(window.scrollY >= SCROLL_SIZE)
       window.addEventListener('scroll', handleScroll);
     }
 

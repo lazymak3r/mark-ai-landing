@@ -1,14 +1,14 @@
+'use client'
+
 import React from 'react';
+import classNames from "classnames";
 
 import classes from './ValueProposition.module.scss'
 import {Button} from "@/components/Button/Button";
-import classNames from "classnames";
+import {cards} from "@/components/ValueProposition/constants";
 
 interface ValuePropositionProps {
-
 }
-
-const cards = [1, 2, 3, 4]
 
 export const ValueProposition: React.FC<ValuePropositionProps> = (props) => {
   return (
@@ -39,19 +39,18 @@ export const ValueProposition: React.FC<ValuePropositionProps> = (props) => {
                       <div className={classes.featuresBox}>
                         <div className={classes.featuresImageWrap}>
                           <img
-                            src="https://assets.website-files.com/6455ed9f0d3281b2f933d00d/645a225849c0965e52b95648_Hv2%20Features%20Image1.svg"
-                            loading="lazy" alt=""
+                            src={card.icon}
+                            loading="lazy"
                             className={classes.featuresImage}
                           />
                         </div>
                         <div className={classes.featuresText}>
-                          <h2 className={classes.featuresSingleTitle}>Lightning fast speed</h2>
+                          <h2 className={classes.featuresSingleTitle}>{card.title}</h2>
                           <p className={classes.featuresSingleDescriptionText}>
-                            We believe you should have access to the most important data at no extra cost. Get Store
-                            Overview, Email Reports
+                            {card.description}
                           </p>
                           <div className={classes.featuresLinkArrowWrapper}>
-                            <a href="/contact-us" className={classes.featuresLinkArrow}>
+                            <a href={card.url} className={classes.featuresLinkArrow}>
                               <div className={classes.featuresLinkTextBlockWrap}>
                                 <div className={classes.featuresLinkTextBlock}>
                                   contact us
