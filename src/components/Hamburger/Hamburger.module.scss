@@ -1,0 +1,54 @@
+.menuButton {
+  display: none;
+  cursor: pointer;
+  font-size: 24px;
+  user-select: none;
+  position: relative;
+  -ms-user-select: none;
+  -webkit-user-select: text;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+  &.isOpened {
+    .hamburgerMenuBar {
+      &.top {
+        transform: translate3d(0px, 8px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(135deg) skew(0deg, 0deg);
+      }
+
+      &.bottom {
+        transform: translate3d(0px, -7px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(45deg) skew(0deg, 0deg);
+      }
+    }
+  }
+}
+
+.hamburgerMenuBar {
+  &.top {
+    width: 40px;
+    height: 3px;
+    background-color: #000;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    padding-bottom: 0;
+    padding-right: 0;
+    transition: transform 0.125s ;
+  }
+
+  &.bottom {
+    width: 40px;
+    height: 3px;
+    background-color: #000;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    padding-bottom: 0;
+    padding-right: 0;
+    transform-style: preserve-3d;
+    transition: transform 0.125s ;
+  }
+}
+
+
+@media screen and (max-width: 991px) {
+  .menuButton {
+    display: inline-block;
+  }
+}

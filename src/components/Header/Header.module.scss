@@ -1,0 +1,87 @@
+.header {
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  bottom: auto;
+  display: flex;
+  height: 116px;
+  z-index: 1000;
+  position: fixed;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  will-change: background;
+  transition: background-color .45s;
+  background-color: rgba(247, 245, 237, 0);
+
+  &.isScrolled {
+    background-color: rgba(255, 255, 255, 1);
+  }
+}
+
+.container{
+  width: 100%;
+  height: 100%;
+}
+
+.headerWrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.headerLeftContent {
+  grid-column-gap: 100px;
+  align-items: center;
+  display: flex;
+}
+
+.headerRightContent {
+  grid-column-gap: 50px;
+  align-items: center;
+  display: flex;
+}
+
+.logo {
+  float: left;
+  color: #333;
+  text-decoration: none;
+  position: relative;
+}
+
+.navbar {
+  grid-column-gap: 35px;
+  justify-content: space-between;
+  display: flex;
+}
+
+.navigation {
+  gap: 35px;
+  display: flex;
+  align-items: center;
+}
+
+.navLink {
+  padding: 0;
+  color: #222;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  vertical-align: top;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  transition: all .45s;
+
+  &:hover {
+    color: #7144f2;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .navbar, .headerButton {
+    display: none;
+  }
+}

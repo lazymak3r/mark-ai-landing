@@ -1,0 +1,50 @@
+.menuOverlay {
+  left: 0;
+  right: 0;
+  height: 0;
+  top: 100%;
+  width: 100%;
+  display: none;
+  position: absolute;
+  overflow: hidden;
+  background-color: #f7f5ed;
+  transition: height 0.125s;
+
+  &.isOpened {
+    height: calc(100vh - 116px);
+  }
+}
+
+.menu {
+  overflow: auto;
+}
+
+.navigation {
+  gap: 35px;
+  display: flex;
+  padding-top: 40px;
+  padding-left: 30px;
+  padding-bottom: 40px;
+  flex-direction: column;
+}
+
+.navLink {
+  padding: 0;
+  color: #222;
+  text-align: left;
+  vertical-align: top;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  transition: all .45s;
+
+  &:hover {
+    color: #7144f2;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .menuOverlay {
+    display: block;
+  }
+}

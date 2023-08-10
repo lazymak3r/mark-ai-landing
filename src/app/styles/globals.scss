@@ -1,0 +1,85 @@
+:root {
+  --systemWhite: rgb(255, 255, 255);
+  --systemBlack: rgb(0, 0, 0);
+  --systemGreenLight: rgb(15, 217, 154);
+  --systemGreen: rgb(3, 195, 156);
+  --systemGreenDark: rgb(5, 170, 136);
+  --systemBlueLight: rgb(64, 156, 255);
+  --systemBlue: rgb(0, 122, 255);
+  --systemBlueDark: rgb(10, 132, 255);
+  --systemRed: rgb(255, 59, 48);
+  --systemRedDark: rgb(255, 69, 58);
+
+  --systemGray1: rgb(142, 142, 147);
+  --systemGrayDark1: rgb(142, 142, 147);
+  --systemGray2: rgb(174, 174, 178);
+  --systemGrayDark2: rgb(99, 99, 102);
+  --systemGray3: rgb(199, 199, 204);
+  --systemGrayDark3: rgb(72, 72, 74);
+  --systemGray4: rgb(209, 209, 214);
+  --systemGrayDark4: rgb(58, 58, 60);
+  --systemGray5: rgb(229, 229, 234);
+  --systemGrayDark5: rgb(44, 44, 46);
+  --systemGray6: rgb(242, 242, 247);
+  --systemGrayDark6: rgb(28, 28, 30);
+
+  --app-bg: #fcfbf9;
+}
+
+*, html, body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: #000;
+  font-size: 18px;
+  min-height: 100%;
+  font-weight: 300;
+  line-height: 20px;
+  background-color: #fff;
+}
+
+.container {
+  max-width: 1350px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.primary-button {
+  color: #fff;
+  text-transform: capitalize;
+  background-color: #000;
+  border: 1px solid #7144f2;
+  border-radius: 7px;
+  padding: 17px 30px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all .45s;
+  box-shadow: 3px 3px #6637ed;
+
+  &:hover {
+    box-shadow: none;
+  }
+}
+
+.secondary-button {
+  color: #000;
+  text-transform: capitalize;
+  background-color: #d9fc50;
+  border: 1px solid #000;
+  border-radius: 7px;
+  padding: 17px 30px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all .45s;
+  box-shadow: 3px 3px #000;
+
+  &:hover {
+    box-shadow: none;
+  }
+}
