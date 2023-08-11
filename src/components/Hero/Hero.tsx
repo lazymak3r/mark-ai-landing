@@ -1,13 +1,21 @@
+'use client'
+
 import React from 'react';
 
 import classes from "./Hero.module.scss";
 import {Button} from "@/components/Button/Button";
 
 interface HeroProps {
-
-};
+}
 
 export const Hero: React.FC<HeroProps> = (props) => {
+
+  const handleGetStartedClick = () => {
+    if (typeof window !== "undefined") {
+      window.location.href = process.env.NEXT_PUBLIC_APP_URL as string
+    }
+  }
+
   return (
     <div className={classes.hero}>
       <div className={'container'}>
@@ -25,7 +33,7 @@ export const Hero: React.FC<HeroProps> = (props) => {
               anyone can play with customize the data analytics.our dashboard provides you with a holistic view of
               business.
             </p>
-            <Button text={'Get Started For Free'}/>
+            <Button text={'Get Started For Free'} onClick={handleGetStartedClick}/>
           </div>
           <div className={classes.heroImageWrapper}>
             <img

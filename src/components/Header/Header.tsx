@@ -26,6 +26,12 @@ export const Header: React.FC<HeaderProps> = (props) => {
     }
   };
 
+  const handleGetStartedClick = () => {
+    if (typeof window !== "undefined") {
+      window.location.href = process.env.NEXT_PUBLIC_APP_URL as string
+    }
+  }
+
   useEffect(() => {
     if (typeof window !== "undefined") {
       setIsScrolled(window.scrollY >= SCROLL_SIZE)
@@ -54,7 +60,11 @@ export const Header: React.FC<HeaderProps> = (props) => {
             </div>
           </div>
           <div className={classes.headerRightContent}>
-            <Button text={'Get Started'} variant={'secondary'} className={classes.headerButton}/>
+            <Button
+              text={'Get Started'} variant={'secondary'}
+              className={classes.headerButton}
+              onClick={handleGetStartedClick}
+            />
             <Hamburger isOpened={isMenuOpen} onClick={() => setIsMenuOpen(prev => !prev)}/>
           </div>
         </div>

@@ -11,6 +11,13 @@ interface ValuePropositionProps {
 }
 
 export const ValueProposition: React.FC<ValuePropositionProps> = (props) => {
+
+  const handleGetStartedClick = () => {
+    if (typeof window !== "undefined") {
+      window.location.href = process.env.NEXT_PUBLIC_APP_URL as string
+    }
+  }
+
   return (
     <div className={classes.valueProposition}>
       <div className={'container'}>
@@ -25,7 +32,7 @@ export const ValueProposition: React.FC<ValuePropositionProps> = (props) => {
                 impact.
               </p>
               <div className={classes.primaryButtonWrapper}>
-                <Button text={'get started for free'}/>
+                <Button text={'get started for free'} onClick={handleGetStartedClick}/>
               </div>
             </div>
           </div>

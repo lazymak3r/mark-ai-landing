@@ -9,7 +9,6 @@
       cursor: pointer;
 
       .tableCell {
-        color: #666666;
         margin-bottom: 0;
         margin-top: 0;
       }
@@ -21,6 +20,7 @@
       text-align: center;
 
       &:nth-child(1) {
+        color: #666666;
         max-width: 500px;
         text-align: left;
       }
@@ -31,7 +31,7 @@
     }
 
     &.even {
-      background-color: rgba(0, 0, 0, .04);
+      background-color: #f7f5ed;
     }
   }
 }

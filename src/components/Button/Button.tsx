@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react';
 import classNames from "classnames";
 
@@ -7,11 +9,15 @@ interface ButtonProps {
   text: string,
   variant?: 'primary' | 'secondary',
   className?: string
-};
+  onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
+}
 
-export const Button: React.FC<ButtonProps> = ({text, className, variant = 'primary'}) => {
+export const Button: React.FC<ButtonProps> = ({text, className, variant = 'primary', onClick}) => {
   return (
-    <div className={classNames([classes.button, `${variant}-button`, className])}>
+    <div
+      role={'button'}
+      className={classNames([classes.button, `${variant}-button`, className])} onClick={onClick}
+    >
       {text}
     </div>
   );
