@@ -1,0 +1,257 @@
+.process {
+  padding-top: 140px;
+  background-color: #121213;
+
+  &:hover {
+    .processArrowImage1 {
+      transform: rotate(-5deg);
+    }
+
+    .processArrowImage2 {
+      transform: rotate(5deg);
+    }
+
+  }
+}
+
+.processSectionTitleWrapper {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.processSectionTitle {
+  color: #fff;
+  letter-spacing: -.01em;
+  text-transform: capitalize;
+  margin-bottom: 10px;
+  font-size: 54px;
+  font-weight: 600;
+  line-height: 64px;
+}
+
+.processSectionParagraphText {
+  max-width: 585px;
+  color: #fff;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 28px;
+}
+
+.processWrapper {
+  border-bottom: 1px solid rgba(255, 255, 255, .12);
+  padding-bottom: 140px;
+  position: relative;
+}
+
+.processGrid {
+  grid-column-gap: 170px;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-row-gap: 16px;
+  grid-auto-columns: 1fr;
+  display: grid;
+}
+
+.processSingleWrapper {
+  text-align: center;
+  grid-area: span 1 / span 1 / span 1 / span 1;
+}
+
+.processNumberWrapper {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+
+  &.processNumberWrapper1 {
+    background-color: #d9fc50;
+  }
+
+  &.processNumberWrapper2 {
+    background-color: #fec0de;
+  }
+
+  &.processNumberWrapper3 {
+    background-color: #e1ffcf;
+  }
+}
+
+.processNumber {
+  color: #000;
+  letter-spacing: -.01em;
+  font-size: 54px;
+  font-weight: 600;
+  line-height: 54px;
+}
+
+.processTitle {
+  color: #fff;
+  letter-spacing: -.01em;
+  text-transform: capitalize;
+  margin-bottom: 17px;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 38px;
+}
+
+.processDescriptionText {
+  max-width: 324px;
+  color: #fff;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 28px;
+}
+
+
+.processArrowImage1 {
+  position: absolute;
+  top: 20px;
+  bottom: auto;
+  left: 325px;
+  right: auto;
+  transition: transform 0.2s ease;
+}
+
+.processArrowImage2 {
+  position: absolute;
+  top: 20px;
+  bottom: auto;
+  left: auto;
+  right: 325px;
+  transition: transform 0.2s ease;
+}
+
+@media screen and (max-width: 991px) {
+  .process {
+    padding-top: 100px;
+  }
+
+  .processSectionTitleWrapper {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .processSectionTitle {
+    font-size: 48px;
+    line-height: 58px;
+  }
+
+  .processWrapper {
+    padding-bottom: 100px;
+  }
+
+  .processGrid {
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .processNumberWrapper {
+    margin-bottom: 20px;
+  }
+
+  .processTitle {
+    margin-bottom: 14px;
+  }
+
+  .processDescriptionText {
+    font-size: 17px;
+    line-height: 27px;
+  }
+
+  .processArrowImage1, .processArrowImage2 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .process {
+    padding-top: 80px;
+  }
+
+  .processSectionTitleWrapper {
+    max-width: 480px;
+    margin-bottom: 50px;
+  }
+
+  .processSectionTitle {
+    font-size: 35px;
+    line-height: 45px;
+  }
+
+  .processSectionParagraphText {
+    max-width: 400px;
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  .processWrapper {
+    padding-bottom: 80px;
+  }
+
+  .processGrid {
+    grid-row-gap: 25px;
+    grid-template-columns: 1fr;
+  }
+
+  .processNumber {
+    font-size: 38px;
+    line-height: 48px;
+  }
+
+  .processTitle {
+    font-size: 26px;
+    line-height: 36px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .process {
+    padding-top: 60px;
+  }
+
+  .processSectionTitleWrapper {
+    max-width: 320px;
+    margin-bottom: 40px;
+  }
+
+  .processSectionTitle {
+    font-size: 23px;
+    line-height: 33px;
+  }
+
+  .processWrapper {
+    padding-bottom: 60px;
+  }
+
+  .processGrid {
+    grid-row-gap: 20px;
+  }
+
+  .processNumberWrapper {
+    width: 80px;
+    height: 80px;
+  }
+
+  .processNumber {
+    font-size: 34px;
+    line-height: 44px;
+  }
+
+  .processTitle {
+    font-size: 22px;
+    line-height: 32px;
+  }
+
+  .processDescriptionText {
+    max-width: 275px;
+    font-size: 15px;
+    line-height: 25px;
+  }
+}
