@@ -90,6 +90,38 @@ img {
   }
 }
 
+.table {
+  width: 100%;
+  border-collapse: collapse;
+
+  .table_header {
+    font-weight: 500;
+  }
+
+  .table_body {
+
+  }
+
+  .table_footer {
+
+  }
+
+  .table_row {
+    &:nth-child(even) {
+      background-color: rgba(0, 0, 0, .04);
+    }
+  }
+
+  .table_cell {
+    padding: 16px;
+    border-right: 1px solid rgba(0, 0, 0, .08);
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+}
+
 @media screen and (max-width: 479px) {
   .primary-button,
   .secondary-button {

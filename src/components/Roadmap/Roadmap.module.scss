@@ -1,0 +1,84 @@
+.roadmap {
+  padding-top: 140px;
+  padding-bottom: 140px;
+}
+
+.table {
+  .tableBody {
+    .tableRow {
+      cursor: pointer;
+
+      .tableCell {
+        color: #666666;
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+    }
+  }
+
+  .tableRow {
+    .tableCell {
+      text-align: center;
+
+      &:nth-child(1) {
+        max-width: 500px;
+        text-align: left;
+      }
+    }
+
+    &:nth-child(even) {
+      background-color: #ffffff;
+    }
+
+    &.even {
+      background-color: rgba(0, 0, 0, .04);
+    }
+  }
+}
+
+.content {
+  padding: 18px;
+  font-size: 16px;
+  border-top: 1px solid rgba(0, 0, 0, .07);
+  border-bottom: 1px solid rgba(0, 0, 0, .07);
+}
+
+@media screen and (max-width: 991px) {
+  .roadmap {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  .table {
+    .tableRow {
+      display: flex;
+      flex-wrap: wrap;
+
+      .tableCell {
+        flex-basis: 33.3333%;
+        border-right: none;
+
+        &:nth-child(1) {
+          flex-basis: 100%;
+          max-width: initial;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 767px) {
+  .roadmap {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .roadmap {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+}
