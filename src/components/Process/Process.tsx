@@ -1,7 +1,8 @@
 import React from 'react';
+import classNames from "classnames";
+import Image from 'next/image'
 
 import classes from './Process.module.scss'
-import classNames from "classnames";
 
 interface ProcessProps {
 
@@ -14,7 +15,7 @@ export const Process: React.FC<ProcessProps> = (props) => {
         <div className={classes.processSectionTitleWrapper}>
           <h2 className={classes.processSectionTitle}>Path to Success</h2>
           <p className={classes.processSectionParagraphText}>
-            From idea inception to market understanding, harness AI's prowess to generate innovative concepts, refine
+            From idea inception to market understanding, harness AI&apos;s prowess to generate innovative concepts, refine
             them for maximum impact, and gain deeper insights into market dynamics for informed decision-making.
           </p>
         </div>
@@ -48,13 +49,21 @@ export const Process: React.FC<ProcessProps> = (props) => {
               </p>
             </div>
           </div>
-          <img
-            src="https://assets.website-files.com/6455ed9f0d3281b2f933d00d/645a49337b0a306ac4165ecf_Process%20Arrow1.png"
-            loading="lazy" alt="" className={classes.processArrowImage1}
+          <Image
+            alt=""
+            width={172}
+            height={43}
+            loading="lazy"
+            className={classes.processArrowImage1}
+            src="/Process_Arrow1.png"
           />
-          <img
-            src="https://assets.website-files.com/6455ed9f0d3281b2f933d00d/645a49336a368fb58addf629_Process%20Arrow2.png"
-            loading="lazy" alt="" className={classes.processArrowImage2}
+          <Image
+            alt=""
+            width={172}
+            height={43}
+            loading="lazy"
+            className={classes.processArrowImage2}
+            src="/Process_Arrow2.png"
           />
           {/*<div className="process-line" style="will-change: width, height; width: 39.043%; height: 1px;"></div>*/}
         </div>

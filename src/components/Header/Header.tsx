@@ -2,6 +2,7 @@
 
 import React, {useEffect, useState} from 'react';
 import Link from "next/link";
+import Image from "next/image";
 import classNames from "classnames";
 
 import classes from './Header.module.scss'
@@ -52,7 +53,7 @@ export const Header: React.FC<HeaderProps> = (props) => {
         <div className={classes.headerWrapper}>
           <div className={classes.headerLeftContent}>
             <Link href="/" className={classes.logo}>
-              <img src="logo.jpg" alt="AI Startup Generator"/>
+              <Image src="/logo.jpg" alt="AI Startup Generator" width={107} height={80}/>
             </Link>
             <div className={classes.navbar}>
               {/*<nav className={classes.navigation}>*/}

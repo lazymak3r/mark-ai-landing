@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react';
+import Image from "next/image";
 import classNames from "classnames";
 
 import classes from './ValueProposition.module.scss'
@@ -41,8 +42,11 @@ export const ValueProposition: React.FC<ValuePropositionProps> = (props) => {
                          className={classNames([classes.featuresSingle, classes[`featuresSingle${index + 1}`]])}>
                       <div className={classes.featuresBox}>
                         <div className={classes.featuresImageWrap}>
-                          <img
+                          <Image
+                            alt={''}
                             src={card.icon}
+                            width={51}
+                            height={51}
                             loading="lazy"
                             className={classes.featuresImage}
                           />
@@ -59,10 +63,12 @@ export const ValueProposition: React.FC<ValuePropositionProps> = (props) => {
                                   Contact Us
                                 </div>
                               </div>
-                              <img
+                              <Image
                                 alt=""
+                                width={31}
+                                height={18}
                                 loading="lazy"
-                                src="https://assets.website-files.com/6455ed9f0d3281b2f933d00d/64574d3313de7850e34ec327_Tertiary%20Arrow1.svg"
+                                src="/Tertiary_Arrow1.svg"
                                 className={classes.featuresLinkArrowImage}
                               />
                             </a>
