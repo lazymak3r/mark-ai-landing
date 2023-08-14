@@ -22,8 +22,6 @@ export const Roadmap: React.FC<RoadmapProps> = (props) => {
   const [processing, setProcessing] = useState<boolean>(false)
   const [loading, setLoading] = useState<boolean>(false)
   const [data, setData] = useState<any[]>([])
-  const [voteResultsLoading, setVoteResultsLoading] = useState<boolean>(false)
-  const [voteResults, setVoteResults] = useState<any[]>([])
   const [expandedRows, setExpandedRows] = useState<number[]>([]);
 
   const handleRowClick = (index: number) => {
@@ -43,19 +41,6 @@ export const Roadmap: React.FC<RoadmapProps> = (props) => {
       setLoading(false)
     } catch (error) {
       console.log(error)
-    }
-  }
-
-  const getVoteResults = async () => {
-    try {
-      setVoteResultsLoading(true)
-      const result = await axios.get('/roadmap-vote');
-      const data = result.data.data;
-      setVoteResults(data)
-      setVoteResultsLoading(false)
-    } catch (error) {
-      console.log(error)
-      setVoteResultsLoading(false)
     }
   }
 
@@ -89,15 +74,6 @@ export const Roadmap: React.FC<RoadmapProps> = (props) => {
           dir: isChecked
         })
       }
-
-      setVoteResults(prev => {
-        return prev.map(record => {
-          if (Number(record.id) === row.id) {
-            return {...record, [name]: String(Number(record[name]) + (isChecked ? 1 : -1))}
-          }
-          return record
-        })
-      })
       setProcessing(false)
     } catch (error) {
       console.log(error)
@@ -107,7 +83,6 @@ export const Roadmap: React.FC<RoadmapProps> = (props) => {
 
   useEffect(() => {
     getDataFromIndexDb()
-    getVoteResults()
   }, [])
 
   if (loading) {
@@ -132,21 +107,11 @@ export const Roadmap: React.FC<RoadmapProps> = (props) => {
             <th className={classNames(['table_cell', classes.tableCell])}>
               I would pay for this
             </th>
-            <th className={classNames(['table_cell', classes.tableCell])}>
-              Quantity
-            </th>
           </tr>
           </thead>
           <tbody className={classNames(['table_body', classes.tableBody])}>
           {tableData.map((row, index) => {
             const rowFromDb = data.find((r: any) => r.id === row.id)
-            const quantity = voteResults.reduce((acc, el) => {
-              if (Number(el.id) === row.id) {
-                return acc + Number(el.wouldInterested) + Number(el.wouldPay)
-              }
-              return acc;
-            }, 0)
-
             return (
               <React.Fragment key={index}>
                 <tr
@@ -181,9 +146,6 @@ export const Roadmap: React.FC<RoadmapProps> = (props) => {
                         onCheckHandler((e.target as HTMLInputElement).checked, row, 'wouldPay')
                       }}
                     />
-                  </td>
-                  <td className={classNames(['table_cell', classes.tableCell])}>
-                    {voteResultsLoading ? "Loading..." : quantity}
                   </td>
                 </tr>
                 {/*Collapse*/}
