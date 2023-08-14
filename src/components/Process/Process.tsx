@@ -12,10 +12,10 @@ export const Process: React.FC<ProcessProps> = (props) => {
     <div className={classes.process}>
       <div className="container">
         <div className={classes.processSectionTitleWrapper}>
-          <h2 className={classes.processSectionTitle}>process zohatic has follow</h2>
+          <h2 className={classes.processSectionTitle}>Path to Success</h2>
           <p className={classes.processSectionParagraphText}>
-            We have become a preferred partner to the leading biofuel refiners, major oil companies, blenders,
-            retailers, and other commodity company.
+            From idea inception to market understanding, harness AI's prowess to generate innovative concepts, refine
+            them for maximum impact, and gain deeper insights into market dynamics for informed decision-making.
           </p>
         </div>
         <div className={classes.processWrapper}>
