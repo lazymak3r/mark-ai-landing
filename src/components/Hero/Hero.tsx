@@ -22,18 +22,21 @@ export const Hero: React.FC<HeroProps> = (props) => {
         <div className={classes.heroContent}>
           <div className={classes.heroTitleWrapper}>
             <div className={classes.heroTitleSingleWrapper}>
-              <h2 className={classes.heroTitle}>Powerful analytic tools for your nearer business.</h2>
+              <h2 className={classes.heroTitle}>Meet your AI Startup Co-founder!</h2>
               <img
                 src="https://assets.website-files.com/6455ed9f0d3281b2f933d00d/645604d709c5e1af690a6312_Banner%20Title%20Shape.png"
                 loading="lazy" alt="" className={classes.heroTitleShape}/>
             </div>
             <p
               className={classes.heroDescriptionText}>
-              Kept ideas aren&apos;t changing the world. Share your insights format that
-              anyone can play with customize the data analytics.our dashboard provides you with a holistic view of
-              business.
+              Think of it like having an AI-powered business partner by your side. It&apos;ll brainstorm business ideas,
+              dig
+              deep into market research, refine your plans, and be there for all your business needs. As you grow and
+              hire more people, he&apos;ll be right there, helping out. From the first idea to building your team, he
+              has got
+              your back.
             </p>
-            <Button text={'Get Started For Free'} onClick={handleGetStartedClick}/>
+            <Button text={'Try Now!'} onClick={handleGetStartedClick}/>
           </div>
           <div className={classes.heroImageWrapper}>
             <img

@@ -25,14 +25,10 @@ export const ValueProposition: React.FC<ValuePropositionProps> = (props) => {
           <div>
             <div
               className={classes.featuresTextWrapper}>
-              <h2 className={classes.featuresTitle}>holistic view of a business insight operations</h2>
-              <p className={classes.featuresDescriptionText}>
-                It&apos;s never been easier to create beautiful
-                and functional website. zohatic provides you with everything you need to get started and make an
-                impact.
-              </p>
+              <h2 className={classes.featuresTitle}>Navigating Success with your AI Business Partner</h2>
+              {/*<p className={classes.featuresDescriptionText}></p>*/}
               <div className={classes.primaryButtonWrapper}>
-                <Button text={'get started for free'} onClick={handleGetStartedClick}/>
+                <Button text={'Try Now!'} onClick={handleGetStartedClick}/>
               </div>
             </div>
           </div>
@@ -60,7 +56,7 @@ export const ValueProposition: React.FC<ValuePropositionProps> = (props) => {
                             <a href={card.url} className={classes.featuresLinkArrow}>
                               <div className={classes.featuresLinkTextBlockWrap}>
                                 <div className={classes.featuresLinkTextBlock}>
-                                  contact us
+                                  Contact Us
                                 </div>
                               </div>
                               <img

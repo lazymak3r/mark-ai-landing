@@ -24,31 +24,28 @@ export const Process: React.FC<ProcessProps> = (props) => {
               <div className={classNames([classes.processNumberWrapper, classes.processNumberWrapper1])}>
                 <div className={classes.processNumber}>1</div>
               </div>
-              <h3 className={classes.processTitle}>Create your account</h3>
+              <h3 className={classes.processTitle}>Idea Generation</h3>
               <p className={classes.processDescriptionText}>
-                Bust down data silos by connecting all of your data – &nbsp;then build powerful segment family brand
-                ambassadors
+                Fueling innovation through creative brainstorming and trend exploration.
               </p>
             </div>
             <div className={classes.processSingleWrapper}>
               <div className={classNames([classes.processNumberWrapper, classes.processNumberWrapper2])}>
                 <div className={classes.processNumber}>2</div>
               </div>
-              <h3 className={classes.processTitle}>Create your account</h3>
+              <h3 className={classes.processTitle}>Idea Improvement</h3>
               <p className={classes.processDescriptionText}>
-                Bust down data silos by connecting all of your data – &nbsp;then build powerful segment family brand
-                ambassadors
+                Enhancing concepts with strategic insights and refined planning.
               </p>
             </div>
             <div className={classes.processSingleWrapper}>
               <div className={classNames([classes.processNumberWrapper, classes.processNumberWrapper3])}>
                 <div className={classes.processNumber}>3</div>
               </div>
-              <h3 className={classes.processTitle}>Create your account</h3>
+              <h3 className={classes.processTitle}>Market Research</h3>
               <p className={classes.processDescriptionText}>
-                Bust down
-                data silos by connecting all of your data – &nbsp;then build powerful segment family brand
-                ambassadors </p>
+                Unveiling insights, trends, and opportunities for informed decision-making.
+              </p>
             </div>
           </div>
           <img
