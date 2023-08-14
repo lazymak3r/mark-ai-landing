@@ -7,6 +7,7 @@
   .tableBody {
     .tableRow {
       cursor: pointer;
+      transition: 0.125s background-color ease;
 
       .tableCell {
         margin-bottom: 0;
@@ -16,7 +17,7 @@
   }
 
   .tableRow {
-    .tableCell {
+    td.tableCell {
       text-align: center;
 
       &:nth-child(1) {
@@ -26,12 +27,14 @@
       }
     }
 
-    &:nth-child(even) {
-      background-color: #ffffff;
-    }
-
     &.even {
       background-color: #f7f5ed;
+    }
+
+    &:not(.collapse) {
+      &:hover {
+        background-color: #e3e1da !important;
+      }
     }
   }
 }
@@ -39,12 +42,35 @@
 .content {
   padding: 18px;
   font-size: 16px;
+  background-color: #ffffff;
   border-top: 1px solid rgba(0, 0, 0, .07);
   border-bottom: 1px solid rgba(0, 0, 0, .07);
 }
 
+.loadingContainer {
+  display: flex;
+  padding-top: 140px;
+  padding-bottom: 140px;
+  justify-content: center;
+}
+
+.firstCell {
+  gap: 16px;
+  display: flex;
+
+  .arrow {
+    display: inline-block;
+    transition: transform 0.125s ease;
+
+    &.opened {
+      transform: rotate(90deg);
+    }
+  }
+}
+
 @media screen and (max-width: 991px) {
-  .roadmap {
+  .roadmap,
+  .loadingContainer {
     padding-top: 100px;
     padding-bottom: 100px;
   }
@@ -54,7 +80,9 @@
       display: flex;
       flex-wrap: wrap;
 
-      .tableCell {
+
+      th.tableCell,
+      td.tableCell {
         flex-basis: 33.3333%;
         border-right: none;
 
@@ -66,18 +94,26 @@
       }
     }
   }
+
+  .firstCell {
+    .firstCellTitle {
+      flex-grow: 1;
+    }
+  }
 }
 
 
 @media screen and (max-width: 767px) {
-  .roadmap {
+  .roadmap,
+  .loadingContainer {
     padding-top: 80px;
     padding-bottom: 80px;
   }
 }
 
 @media screen and (max-width: 479px) {
-  .roadmap {
+  .roadmap,
+  .loadingContainer {
     padding-top: 60px;
     padding-bottom: 60px;
   }

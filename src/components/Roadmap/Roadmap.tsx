@@ -1,12 +1,16 @@
 'use client'
 
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import classNames from "classnames";
-import {motion} from 'framer-motion';
 import {Syne} from 'next/font/google'
+import {motion} from 'framer-motion';
+import {BsChevronRight} from "react-icons/bs";
 
+import axios from "@/config/axios";
 import classes from './Roadmap.module.scss'
-import {tableData} from "@/components/Roadmap/constants";
+import {Loading} from "@/components/Loading/Loading";
+import {RoadMapData, tableData} from "@/components/Roadmap/constants";
+import {addData, getAllData, getItemById, updateItemById} from "@/config/IndexedDB";
 
 const syne = Syne({subsets: ['latin']})
 
@@ -15,6 +19,11 @@ interface RoadmapProps {
 }
 
 export const Roadmap: React.FC<RoadmapProps> = (props) => {
+  const [processing, setProcessing] = useState<boolean>(false)
+  const [loading, setLoading] = useState<boolean>(false)
+  const [data, setData] = useState<any[]>([])
+  const [voteResultsLoading, setVoteResultsLoading] = useState<boolean>(false)
+  const [voteResults, setVoteResults] = useState<any[]>([])
   const [expandedRows, setExpandedRows] = useState<number[]>([]);
 
   const handleRowClick = (index: number) => {
@@ -26,6 +35,88 @@ export const Roadmap: React.FC<RoadmapProps> = (props) => {
     }
   };
 
+  const getDataFromIndexDb = async () => {
+    try {
+      setLoading(true)
+      const data = await getAllData('roadmap')
+      setData(data)
+      setLoading(false)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const getVoteResults = async () => {
+    try {
+      setVoteResultsLoading(true)
+      const result = await axios.get('/roadmap-vote');
+      const data = result.data.data;
+      setVoteResults(data)
+      setVoteResultsLoading(false)
+    } catch (error) {
+      console.log(error)
+      setVoteResultsLoading(false)
+    }
+  }
+
+  const onCheckHandler = async (isChecked: boolean, row: RoadMapData, name: string) => {
+    try {
+      setProcessing(true)
+      const item = await getItemById('roadmap', row.id)
+      if (item) {
+        // Update item
+        await updateItemById('roadmap', row.id, {
+          ...item,
+          id: row.id,
+          name: row.name,
+          [name]: isChecked
+        });
+        await axios.post('/roadmap-vote', {
+          id: row.id,
+          variant: name,
+          dir: isChecked
+        })
+      } else {
+        // Create item
+        await addData('roadmap', {
+          id: row.id,
+          name: row.name,
+          [name]: isChecked
+        });
+        await axios.post('/roadmap-vote', {
+          id: row.id,
+          variant: name,
+          dir: isChecked
+        })
+      }
+
+      setVoteResults(prev => {
+        return prev.map(record => {
+          if (Number(record.id) === row.id) {
+            return {...record, [name]: String(Number(record[name]) + (isChecked ? 1 : -1))}
+          }
+          return record
+        })
+      })
+      setProcessing(false)
+    } catch (error) {
+      console.log(error)
+      setProcessing(false)
+    }
+  }
+
+  useEffect(() => {
+    getDataFromIndexDb()
+    getVoteResults()
+  }, [])
+
+  if (loading) {
+    return (<div className={classes.loadingContainer}>
+        <Loading/>
+      </div>
+    )
+  }
+
   return (
     <div className={classes.roadmap}>
       <div className={'container'}>
@@ -33,21 +124,29 @@ export const Roadmap: React.FC<RoadmapProps> = (props) => {
           <thead className={'table_header'}>
           <tr className={classNames(['table_row', classes.tableRow])}>
             <th className={classNames(['table_cell', classes.tableCell])}>
-              Compare Plans
+              Description
             </th>
             <th className={classNames(['table_cell', classes.tableCell])}>
-              Starter Plan
+              I would be interested
             </th>
             <th className={classNames(['table_cell', classes.tableCell])}>
-              Advanced Plan
+              I would pay for this
             </th>
             <th className={classNames(['table_cell', classes.tableCell])}>
-              Custom Plan
+              Quantity
             </th>
           </tr>
           </thead>
           <tbody className={classNames(['table_body', classes.tableBody])}>
           {tableData.map((row, index) => {
+            const rowFromDb = data.find((r: any) => r.id === row.id)
+            const quantity = voteResults.reduce((acc, el) => {
+              if (Number(el.id) === row.id) {
+                return acc + Number(el.wouldInterested) + Number(el.wouldPay)
+              }
+              return acc;
+            }, 0)
+
             return (
               <React.Fragment key={index}>
                 <tr
@@ -55,21 +154,40 @@ export const Roadmap: React.FC<RoadmapProps> = (props) => {
                   onClick={() => handleRowClick(index)}
                 >
                   <td className={classNames(['table_cell', classes.tableCell])}>
-                    Hyper is the powerful calendar app for Mac OS that helps you stay organized and on top of your busy
-                    schedule.
+                    <div className={classes.firstCell}>
+                      <span
+                        className={classNames([classes.arrow, {[classes.opened]: expandedRows.includes(index)}])}><BsChevronRight/></span>
+                      <span className={classes.firstCellTitle}>{row.title}</span>
+                    </div>
                   </td>
                   <td className={classNames(['table_cell', classes.tableCell])}>
-                    1000/month
+                    <input
+                      type={'checkbox'}
+                      name={row.name}
+                      defaultChecked={rowFromDb?.wouldInterested}
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        onCheckHandler((e.target as HTMLInputElement).checked, row, 'wouldInterested')
+                      }}
+                    />
                   </td>
                   <td className={classNames(['table_cell', classes.tableCell])}>
-                    10.000/month
+                    <input
+                      type={'checkbox'}
+                      name={row.name}
+                      defaultChecked={rowFromDb?.wouldPay}
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        onCheckHandler((e.target as HTMLInputElement).checked, row, 'wouldPay')
+                      }}
+                    />
                   </td>
                   <td className={classNames(['table_cell', classes.tableCell])}>
-                    Unlimited
+                    {voteResultsLoading ? "Loading..." : quantity}
                   </td>
                 </tr>
                 {/*Collapse*/}
-                <tr className={classNames(['table_row', classes.tableRow])}>
+                <tr className={classNames(['table_row', classes.tableRow, classes.collapse])}>
                   <td colSpan={4}>
                     <motion.div
                       initial={false}
@@ -77,27 +195,7 @@ export const Roadmap: React.FC<RoadmapProps> = (props) => {
                       transition={{duration: 0.3}}
                       style={{overflow: "hidden"}}
                     >
-                      <div
-                        className={classes.content}>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid aperiam asperiores autem
-                        consequatur cum eaque id illo illum iusto nihil porro quidem quis ratione recusandae, sint
-                        temporibus voluptas voluptate voluptatum!
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid aperiam asperiores autem
-                        consequatur cum eaque id illo illum iusto nihil porro quidem quis ratione recusandae, sint
-                        temporibus voluptas voluptate voluptatum!
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid aperiam asperiores autem
-                        consequatur cum eaque id illo illum iusto nihil porro quidem quis ratione recusandae, sint
-                        temporibus voluptas voluptate voluptatum!
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid aperiam asperiores autem
-                        consequatur cum eaque id illo illum iusto nihil porro quidem quis ratione recusandae, sint
-                        temporibus voluptas voluptate voluptatum!
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid aperiam asperiores autem
-                        consequatur cum eaque id illo illum iusto nihil porro quidem quis ratione recusandae, sint
-                        temporibus voluptas voluptate voluptatum!
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid aperiam asperiores autem
-                        consequatur cum eaque id illo illum iusto nihil porro quidem quis ratione recusandae, sint
-                        temporibus voluptas voluptate voluptatum!
-                      </div>
+                      <div className={classes.content}>{row.description}</div>
                     </motion.div>
                   </td>
                 </tr>
