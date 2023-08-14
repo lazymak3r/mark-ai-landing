@@ -5,6 +5,7 @@ import Link from "next/link";
 import classNames from "classnames";
 
 import classes from './Header.module.scss'
+import logo from '../../../public/logo.jpg'
 import {Menu} from "@/components/Menu/Menu";
 import {Button} from "@/components/Button/Button";
 import {Hamburger} from "@/components/Hamburger/Hamburger";
@@ -50,13 +51,15 @@ export const Header: React.FC<HeaderProps> = (props) => {
       <div className={classNames(['container', classes.container])}>
         <div className={classes.headerWrapper}>
           <div className={classes.headerLeftContent}>
-            <Link href="/" className={classes.logo}>AI Startup Generator</Link>
+            <Link href="/" className={classes.logo}>
+              <img src="logo.jpg" alt="AI Startup Generator"/>
+            </Link>
             <div className={classes.navbar}>
-              <nav className={classes.navigation}>
-                <Link href="/" className={classes.navLink}>Home</Link>
-                <Link href="/about" className={classes.navLink}>About</Link>
-                <Link href="/contact-us" className={classes.navLink}>Contact Us</Link>
-              </nav>
+              {/*<nav className={classes.navigation}>*/}
+              {/*  <Link href="/" className={classes.navLink}>Home</Link>*/}
+              {/*  <Link href="/about" className={classes.navLink}>About</Link>*/}
+              {/*  <Link href="/contact-us" className={classes.navLink}>Contact Us</Link>*/}
+              {/*</nav>*/}
             </div>
           </div>
           <div className={classes.headerRightContent}>
@@ -65,7 +68,7 @@ export const Header: React.FC<HeaderProps> = (props) => {
               className={classes.headerButton}
               onClick={handleGetStartedClick}
             />
-            <Hamburger isOpened={isMenuOpen} onClick={() => setIsMenuOpen(prev => !prev)}/>
+            {/*<Hamburger isOpened={isMenuOpen} onClick={() => setIsMenuOpen(prev => !prev)}/>*/}
           </div>
         </div>
       </div>
