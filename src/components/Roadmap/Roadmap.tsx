@@ -95,6 +95,10 @@ export const Roadmap: React.FC<RoadmapProps> = (props) => {
   return (
     <div className={classes.roadmap}>
       <div className={'container'}>
+        <p className={classes.roadmapSectionTitle}>
+          Help us create the perfect app for you. Share your preferred features and needs as we prepare to launch our
+          exciting beta version
+        </p>
         <table className={classNames(['table', classes.table, syne.className])}>
           <thead className={'table_header'}>
           <tr className={classNames(['table_row', classes.tableRow])}>
