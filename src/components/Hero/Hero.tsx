@@ -5,7 +5,7 @@ import Image from "next/image";
 
 import classes from "./Hero.module.scss";
 import Hero_Image from '../../assets/images/Hero_Image.png'
-import Hero_Card_Image1 from '../../assets/images/Hero_Card_Image2.png'
+import Hero_Card_Image1 from '../../assets/images/Hero_Card_Image1.png'
 import Hero_Card_Image2 from '../../assets/images/Hero_Card_Image2.png'
 import Hero_Image_Shape1 from '../../assets/images/Hero_Image_Shape1.png'
 import Banner_Title_Shape from '../../assets/images/Banner_Title_Shape.png'
@@ -33,7 +33,8 @@ export const Hero: React.FC<HeroProps> = (props) => {
                 alt=""
                 width={47}
                 height={60}
-                loading="lazy"
+                priority={true}
+                placeholder={'empty'}
                 className={classes.heroTitleShape}
                 src={Banner_Title_Shape}
               />
@@ -54,7 +55,8 @@ export const Hero: React.FC<HeroProps> = (props) => {
               alt=""
               width={430}
               height={584}
-              loading="lazy"
+              priority={true}
+              placeholder={'empty'}
               src={Hero_Image_Shape1}
               className={classes.heroImageShape1}
             />
@@ -62,29 +64,32 @@ export const Hero: React.FC<HeroProps> = (props) => {
               <div className={classes.heroImageWrap}>
                 <Image
                   alt=""
-                  loading="lazy"
                   width={422}
                   height={600}
+                  priority={true}
                   src={Hero_Image}
+                  placeholder={'empty'}
                   className={classes.heroImage}
                 />
               </div>
             </div>
             <Image
               alt=""
-              loading="lazy"
-              className={classes.heroCardImage1}
               width={240}
               height={179}
+              priority={true}
+              placeholder={'empty'}
               src={Hero_Card_Image1}
+              className={classes.heroCardImage1}
             />
             <Image
               alt=""
               width={270}
               height={200}
-              loading="lazy"
-              className={classes.heroCardImage2}
+              priority={true}
+              placeholder={'empty'}
               src={Hero_Card_Image2}
+              className={classes.heroCardImage2}
             />
             <div className={classes.heroCardShape4}></div>
             <div className={classes.heroCardShape5}></div>

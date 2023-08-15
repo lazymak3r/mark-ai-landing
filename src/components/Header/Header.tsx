@@ -53,7 +53,8 @@ export const Header: React.FC<HeaderProps> = (props) => {
         <div className={classes.headerWrapper}>
           <div className={classes.headerLeftContent}>
             <Link href="/" className={classes.logo}>
-              <Image src={logo} alt="AI Startup Generator" width={90} height={90}/>
+              <Image src={logo} alt="AI Startup Generator" width={90} height={90} priority={true}
+                     placeholder={'empty'}/>
             </Link>
             <div className={classes.navbar}>
               {/*<nav className={classes.navigation}>*/}
