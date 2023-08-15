@@ -5,8 +5,9 @@ import Image from "next/image";
 import classNames from "classnames";
 
 import classes from './ValueProposition.module.scss'
-import {Button} from "@/components/Button/Button";
+import Tertiary_Arrow1 from '../../assets/images/Tertiary_Arrow1.svg'
 import {cards} from "@/components/ValueProposition/constants";
+import {Button} from "@/components/Button/Button";
 
 interface ValuePropositionProps {
 }
@@ -68,7 +69,7 @@ export const ValueProposition: React.FC<ValuePropositionProps> = (props) => {
                                 width={31}
                                 height={18}
                                 loading="lazy"
-                                src="/Tertiary_Arrow1.svg"
+                                src={Tertiary_Arrow1}
                                 className={classes.featuresLinkArrowImage}
                               />
                             </a>

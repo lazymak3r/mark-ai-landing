@@ -1,10 +1,15 @@
 'use client'
 
 import React from 'react';
+import Image from "next/image";
 
 import classes from "./Hero.module.scss";
+import Hero_Image from '../../assets/images/Hero_Image.png'
+import Hero_Card_Image1 from '../../assets/images/Hero_Card_Image2.png'
+import Hero_Card_Image2 from '../../assets/images/Hero_Card_Image2.png'
+import Hero_Image_Shape1 from '../../assets/images/Hero_Image_Shape1.png'
+import Banner_Title_Shape from '../../assets/images/Banner_Title_Shape.png'
 import {Button} from "@/components/Button/Button";
-import Image from "next/image";
 
 interface HeroProps {
 }
@@ -30,7 +35,7 @@ export const Hero: React.FC<HeroProps> = (props) => {
                 height={60}
                 loading="lazy"
                 className={classes.heroTitleShape}
-                src="/Banner_Title_Shape.png"
+                src={Banner_Title_Shape}
               />
             </div>
             <p
@@ -50,7 +55,7 @@ export const Hero: React.FC<HeroProps> = (props) => {
               width={430}
               height={584}
               loading="lazy"
-              src="/Hero_Image_Shape1.png"
+              src={Hero_Image_Shape1}
               className={classes.heroImageShape1}
             />
             <div className={classes.heroImageShape2} style={{backgroundColor: "rgb(225, 255, 207)"}}>
@@ -60,7 +65,7 @@ export const Hero: React.FC<HeroProps> = (props) => {
                   loading="lazy"
                   width={422}
                   height={600}
-                  src="/Hero_Image.png"
+                  src={Hero_Image}
                   className={classes.heroImage}
                 />
               </div>
@@ -71,7 +76,7 @@ export const Hero: React.FC<HeroProps> = (props) => {
               className={classes.heroCardImage1}
               width={240}
               height={179}
-              src="/Hero_Card_Image1.png"
+              src={Hero_Card_Image1}
             />
             <Image
               alt=""
@@ -79,7 +84,7 @@ export const Hero: React.FC<HeroProps> = (props) => {
               height={200}
               loading="lazy"
               className={classes.heroCardImage2}
-              src="/Hero_Card_Image2.png"
+              src={Hero_Card_Image2}
             />
             <div className={classes.heroCardShape4}></div>
             <div className={classes.heroCardShape5}></div>
