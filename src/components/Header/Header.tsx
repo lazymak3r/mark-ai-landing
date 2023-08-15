@@ -6,7 +6,7 @@ import Image from "next/image";
 import classNames from "classnames";
 
 import classes from './Header.module.scss'
-import logo from '../../assets/images/logo.jpg'
+import logo from '../../assets/images/logo.png'
 import {Menu} from "@/components/Menu/Menu";
 import {Button} from "@/components/Button/Button";
 import {Hamburger} from "@/components/Hamburger/Hamburger";
@@ -53,7 +53,7 @@ export const Header: React.FC<HeaderProps> = (props) => {
         <div className={classes.headerWrapper}>
           <div className={classes.headerLeftContent}>
             <Link href="/" className={classes.logo}>
-              <Image src={logo} alt="AI Startup Generator" width={107} height={80}/>
+              <Image src={logo} alt="AI Startup Generator" width={90} height={90}/>
             </Link>
             <div className={classes.navbar}>
               {/*<nav className={classes.navigation}>*/}
