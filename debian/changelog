@@ -1,3 +1,10 @@
+ai-market-research-website (0.0.4) bullseye; urgency=medium
+
+  [ Aram ]
+  * fix: header logo in safari
+
+ -- Olivier Bitsch <olivier.b@iabsis.com>  Tue, 15 Aug 2023 10:34:13 +0200
+
 ai-market-research-website (0.0.3) bullseye; urgency=medium
 
   * Adding env on build
