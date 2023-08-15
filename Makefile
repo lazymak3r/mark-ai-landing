@@ -9,7 +9,7 @@ node_modules:
 
 build: node_modules
 	npx yarn next telemetry disable
-	NEXT_PUBLIC_API_URL="/api" npx yarn run build
+	NEXT_PUBLIC_API_URL="/api" NEXT_PUBLIC_APP_URL="https://app.aistartupgenerator.com" npx yarn run build
 
 install: node_modules
 	mkdir -p $(DESTDIR)$(STATIC)/$(PROJECT)/
