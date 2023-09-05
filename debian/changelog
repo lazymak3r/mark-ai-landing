@@ -1,4 +1,4 @@
-ai-market-research-website (0.0.7) bullseye; urgency=medium
+ai-market-research-website (0.0.8) bullseye; urgency=medium
 
   [ Aram ]
   * fix: header logo in safari
